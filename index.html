@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StockPulse — Indian Portfolio Tracker</title>
+  <meta name="description" content="Premium Indian stock portfolio monitoring dashboard for NSE and BSE markets">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/index.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>📈</text></svg>">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="app-header" id="appHeader">
+    <div class="header-left">
+      <div class="logo" id="logo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <defs><linearGradient id="logoGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient></defs>
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+          <polyline points="16 7 22 7 22 13"/>
+        </svg>
+        <h1>StockPulse</h1>
+      </div>
+      <div class="market-status" id="marketStatus">
+        <span class="status-dot" id="statusDot"></span>
+        <span class="status-text" id="statusText">Checking...</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="last-updated" id="lastUpdated">Last updated: --</span>
+      <button class="btn-icon" id="refreshBtn" aria-label="Refresh prices" title="Refresh prices">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== PORTFOLIO SUMMARY CARDS ===== -->
+  <section class="summary-grid" id="summarySection" aria-label="Portfolio summary">
+    <div class="summary-card" id="cardInvested">
+      <div class="card-icon icon-invested">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+      </div>
+      <span class="card-label">Total Invested</span>
+      <span class="card-value" id="totalInvested">₹0.00</span>
+    </div>
+    <div class="summary-card" id="cardCurrentValue">
+      <div class="card-icon icon-value">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+        </svg>
+      </div>
+      <span class="card-label">Current Value</span>
+      <span class="card-value" id="currentValue">₹0.00</span>
+    </div>
+    <div class="summary-card" id="cardTotalPL">
+      <div class="card-icon icon-pl">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+        </svg>
+      </div>
+      <span class="card-label">Total P&L</span>
+      <span class="card-value" id="totalPL">₹0.00</span>
+      <span class="card-sub" id="totalPLPercent">0.00%</span>
+    </div>
+    <div class="summary-card" id="cardDayPL">
+      <div class="card-icon icon-day">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+      </div>
+      <span class="card-label">Day's P&L</span>
+      <span class="card-value" id="dayPL">₹0.00</span>
+      <span class="card-sub" id="dayPLPercent">0.00%</span>
+    </div>
+  </section>
+
+  <!-- ===== VIEW TABS ===== -->
+  <div class="tabs-container" id="tabsContainer">
+    <button class="tab-btn active" id="tabDashboard" aria-selected="true" role="tab">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px">
+        <rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/>
+      </svg>
+      Portfolio Dashboard
+    </button>
+    <button class="tab-btn" id="tabAdvisor" aria-selected="false" role="tab">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px">
+        <circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/>
+      </svg>
+      AI Advisory Agent
+    </button>
+  </div>
+
+  <!-- ===== MAIN CONTENT GRID ===== -->
+  <main class="main-grid" id="mainContent">
+
+    <!-- LEFT: Holdings Table -->
+    <section class="holdings-section glass-card" id="holdingsSection" aria-label="Stock holdings">
+      <div class="section-header">
+        <h2>Holdings</h2>
+        <div class="section-actions">
+          <button class="btn-primary" id="addStockBtn" aria-label="Add stock holding">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            Add Stock
+          </button>
+        </div>
+      </div>
+
+      <!-- Holdings Table -->
+      <div class="table-wrapper" id="tableWrapper">
+        <table class="holdings-table" id="holdingsTable">
+          <thead>
+            <tr>
+              <th class="sortable" data-sort="symbol">Stock <span class="sort-arrow"></span></th>
+              <th class="sortable" data-sort="quantity">Qty <span class="sort-arrow"></span></th>
+              <th class="sortable" data-sort="avgPrice">Avg Price <span class="sort-arrow"></span></th>
+              <th class="sortable" data-sort="ltp">LTP <span class="sort-arrow"></span></th>
+              <th class="sortable" data-sort="pl">P&L <span class="sort-arrow"></span></th>
+              <th class="sortable" data-sort="plPercent">P&L % <span class="sort-arrow"></span></th>
+              <th class="sortable" data-sort="dayChange">Day Chg <span class="sort-arrow"></span></th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="holdingsBody">
+            <!-- Dynamic rows inserted here -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.4">
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+          <polyline points="16 7 22 7 22 13"/>
+        </svg>
+        <h3>No holdings yet</h3>
+        <p>Start tracking your portfolio by adding your first stock!</p>
+        <button class="btn-primary" id="emptyAddBtn" aria-label="Add your first stock">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Add Your First Stock
+        </button>
+      </div>
+    </section>
+
+    <!-- RIGHT: Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+      <!-- Sector Allocation Chart -->
+      <div class="glass-card sidebar-card" id="allocationSection">
+        <h3>Sector Allocation</h3>
+        <div class="chart-container-sm">
+          <canvas id="allocationChart"></canvas>
+        </div>
+        <div class="allocation-empty" id="allocationEmpty">
+          <p>Add holdings to see allocation</p>
+        </div>
+      </div>
+
+      <!-- Watchlist -->
+      <div class="glass-card sidebar-card" id="watchlistSection">
+        <div class="section-header">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+            Watchlist
+          </h3>
+          <button class="btn-icon btn-sm" id="addWatchlistBtn" aria-label="Add to watchlist" title="Add to watchlist">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </button>
+        </div>
+        <ul class="watchlist-list" id="watchlistList">
+          <!-- Dynamic watchlist items -->
+        </ul>
+        <div class="watchlist-empty" id="watchlistEmpty">
+          <p>No stocks in watchlist</p>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="glass-card sidebar-card" id="quickActions">
+        <h3>Quick Actions</h3>
+        <div class="action-buttons">
+          <button class="btn-secondary btn-block" id="exportBtn" aria-label="Export portfolio">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Export Portfolio
+          </button>
+          <button class="btn-secondary btn-block" id="importBtn" aria-label="Import portfolio">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            Import Portfolio
+          </button>
+          <input type="file" id="importFileInput" accept=".json" hidden aria-hidden="true">
+        </div>
+      </div>
+  </main>
+
+  <!-- ===== AI ADVISOR CONTENT GRID ===== -->
+  <main class="advisor-grid" id="advisorContent" style="display: none;" aria-label="AI advisory panel">
+    
+    <!-- FULL WIDTH: Global Sentiment & Geopolitical Predictor -->
+    <section class="glass-card sentiment-predictor-card" id="sentimentPredictorSection" style="grid-column: span 3;">
+      <div class="sentiment-predictor-header">
+        <div class="header-left">
+          <span class="column-badge" style="background:rgba(139,92,246,0.08); color:var(--accent-purple); border-color:rgba(139,92,246,0.15);">NSE GEO-SENTIMENT</span>
+          <h2>Global Sentiment & Indian Markets Predictor</h2>
+        </div>
+        <div class="sentiment-sync-wrapper">
+          <span class="sentiment-timestamp" id="sentimentTimestamp">Refreshing headlines...</span>
+          <button class="btn-icon btn-sm" id="refreshSentimentBtn" aria-label="Sync news sentiment" title="Sync news sentiment">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="sentiment-grid">
+        <!-- Sentiment Gauge Block -->
+        <div class="sentiment-gauge-block">
+          <div class="gauge-stats">
+            <div class="sentiment-score-circle" id="sentimentScoreCircle">
+              <span class="score-number" id="sentimentScoreNumber">--</span>
+              <span class="score-label">Sentiment</span>
+            </div>
+            <div class="sentiment-direction">
+              <div class="direction-badge" id="sentimentDirectionBadge">--</div>
+              <p class="direction-description" id="sentimentCommentary">Fetching top international papers, NSE press data, and AI/pharma news...</p>
+            </div>
+          </div>
+          
+          <div class="sector-sentiment-bars">
+            <h3>Sectoral Sentiment Breakdown</h3>
+            <div class="sector-bar-item">
+              <div class="sector-bar-label"><span>Global Impact (NSE)</span><strong id="score_global_impact">--</strong></div>
+              <div class="sector-progress-bg"><div class="sector-progress-fill" id="fill_global_impact" style="width: 50%;"></div></div>
+            </div>
+            <div class="sector-bar-item">
+              <div class="sector-bar-label"><span>Politics & Reforms</span><strong id="score_politics_finance">--</strong></div>
+              <div class="sector-progress-bg"><div class="sector-progress-fill" id="fill_politics_finance" style="width: 50%;"></div></div>
+            </div>
+            <div class="sector-bar-item">
+              <div class="sector-bar-label"><span>Industrial & Economy</span><strong id="score_general_nse">--</strong></div>
+              <div class="sector-progress-bg"><div class="sector-progress-fill" id="fill_general_nse" style="width: 50%;"></div></div>
+            </div>
+            <div class="sector-bar-item">
+              <div class="sector-bar-label"><span>AI & Technology</span><strong id="score_tech_ai">--</strong></div>
+              <div class="sector-progress-bg"><div class="sector-progress-fill" id="fill_tech_ai" style="width: 50%;"></div></div>
+            </div>
+            <div class="sector-bar-item">
+              <div class="sector-bar-label"><span>Pharma Sector</span><strong id="score_pharma">--</strong></div>
+              <div class="sector-progress-bg"><div class="sector-progress-fill" id="fill_pharma" style="width: 50%;"></div></div>
+            </div>
+            <div class="sector-bar-item">
+              <div class="sector-bar-label"><span>Growth Startups</span><strong id="score_growth_startups">--</strong></div>
+              <div class="sector-progress-bg"><div class="sector-progress-fill" id="fill_growth_startups" style="width: 50%;"></div></div>
+            </div>
+            <div class="sector-bar-item">
+              <div class="sector-bar-label"><span>Short-Term Momentum</span><strong id="score_momentum_picks">--</strong></div>
+              <div class="sector-progress-bg"><div class="sector-progress-fill" id="fill_momentum_picks" style="width: 50%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Geopolitical Trade Recommendations -->
+        <div class="geopolitical-recs-block">
+          <h3>Daily Actionable Trades (NSE)</h3>
+          <div class="geopolitical-recs-list" id="geopoliticalRecsList">
+            <!-- Dynamic list of recommendations -->
+          </div>
+        </div>
+
+        <!-- Latest News Headlines feed -->
+        <div class="sentiment-news-block">
+          <h3>Geopolitical & Financial Headlines</h3>
+          <div class="sentiment-news-list" id="sentimentNewsList">
+            <!-- Dynamic list of headlines -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Column 1: Holdings Insights -->
+    <section class="glass-card advisor-column" id="holdingsAdvisorSection">
+      <div class="column-header">
+        <div class="header-title-wrapper">
+          <span class="column-badge">ALGORITHMIC</span>
+          <h2>Holdings Analyst</h2>
+        </div>
+        <button class="btn-icon btn-sm" id="refreshAdvisorBtn" aria-label="Recalculate indicators" title="Recalculate indicators">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="advisor-loading" id="advisorHoldingsLoading">
+        <div class="spinner"></div>
+        <p>Running multi-factor technical analysis...</p>
+      </div>
+
+      <div class="advisor-list" id="advisorHoldingsList">
+        <!-- Dynamic holding analysis cards -->
+      </div>
+    </section>
+
+    <!-- Column 2: Market Opportunities Screener -->
+    <section class="glass-card advisor-column" id="marketScreenerSection">
+      <div class="column-header">
+        <div class="header-title-wrapper">
+          <span class="column-badge">GROWTH POOL</span>
+          <h2>Top Opportunities</h2>
+        </div>
+      </div>
+      
+      <div class="advisor-loading" id="advisorScreenerLoading">
+        <div class="spinner"></div>
+        <p>Scanning liquid market pools...</p>
+      </div>
+
+      <div class="screener-list" id="screenerList">
+        <!-- Dynamic screened opportunity cards -->
+      </div>
+    </section>
+
+    <!-- Column 3: Active Returns & Strategy Coach -->
+    <section class="glass-card advisor-column" id="strategyCoachSection">
+      <div class="column-header">
+        <div class="header-title-wrapper">
+          <span class="column-badge">PERSONALIZED</span>
+          <h2>Active Returns Coach</h2>
+        </div>
+      </div>
+
+      <div class="strategy-coach-container" id="strategyCoachContainer">
+        <div class="strategy-card active-strategy" id="strategyRebalance">
+          <div class="strategy-card-header">
+            <div class="strategy-icon icon-rebalance">🔄</div>
+            <h4>Strategic ETF Rebalancing</h4>
+          </div>
+          <p id="rebalanceAdvice">Loading portfolio allocation insights...</p>
+        </div>
+
+        <div class="strategy-card active-strategy" id="strategySip">
+          <div class="strategy-card-header">
+            <div class="strategy-icon icon-sip">📅</div>
+            <h4>Systematic Adding (SIP)</h4>
+          </div>
+          <p>Since your portfolio represents long-term equity indices, setting up a weekly SIP of **₹100** into **NIFTYBEES** or **NEXT50IETF** during red days is the mathematically optimal way to compound your returns while keeping transaction fees at zero.</p>
+        </div>
+
+        <div class="strategy-card active-strategy" id="strategyProfit">
+          <div class="strategy-card-header">
+            <div class="strategy-icon icon-profit">💵</div>
+            <h4>Smart Profit Taking</h4>
+          </div>
+          <p id="profitAdvice">Loading profit-taking triggers...</p>
+        </div>
+
+        <div class="strategy-card active-strategy" id="strategyCosts">
+          <div class="strategy-card-header">
+            <div class="strategy-icon icon-cost">⚠️</div>
+            <h4>Friction Cost Guard</h4>
+          </div>
+          <p>For portfolios under **₹2,000**, avoid frequent day-trading. Flat brokerage fees and depository charges (DP charges of ₹13.5-16 per sale) can easily consume 5-10% of small trades. **Only sell in larger chunks or when technical overrides warrant it.**</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== PRICE CHART SECTION ===== -->
+  <section class="chart-section glass-card" id="chartSection" aria-label="Stock price chart">
+    <div class="chart-header">
+      <div class="chart-title-area">
+        <h2 id="chartStockName">Select a stock to view chart</h2>
+        <span class="chart-subtitle" id="chartStockPrice"></span>
+      </div>
+      <div class="chart-controls">
+        <div class="period-buttons" id="periodButtons" role="group" aria-label="Chart time period">
+          <button class="period-btn" data-period="1d">1D</button>
+          <button class="period-btn" data-period="5d">1W</button>
+          <button class="period-btn active" data-period="1mo">1M</button>
+          <button class="period-btn" data-period="3mo">3M</button>
+          <button class="period-btn" data-period="1y">1Y</button>
+          <button class="period-btn" data-period="5y">5Y</button>
+        </div>
+      </div>
+    </div>
+    <div class="chart-container">
+      <canvas id="priceChart"></canvas>
+    </div>
+    <div class="chart-empty" id="chartEmpty">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.4">
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+      </svg>
+      <p>Click on a stock in your holdings to view its price chart</p>
+    </div>
+  </section>
+
+  <!-- ===== ADD/EDIT STOCK MODAL ===== -->
+  <div class="modal-overlay" id="stockModal" role="dialog" aria-modal="true" aria-labelledby="stockModalTitle" hidden>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="stockModalTitle">Add Stock</h2>
+        <button class="btn-icon" id="stockModalClose" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <form id="stockForm" autocomplete="off">
+        <input type="hidden" id="editStockId">
+        <div class="form-group">
+          <label for="stockSearch">Search Stock</label>
+          <div class="search-input-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="stockSearch" placeholder="Search by name or symbol..." required>
+            <div class="search-results" id="searchResults" hidden></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="stockSymbol">Symbol</label>
+            <input type="text" id="stockSymbol" placeholder="e.g., RELIANCE" readonly>
+          </div>
+          <div class="form-group">
+            <label for="stockName">Company Name</label>
+            <input type="text" id="stockName" placeholder="Auto-filled" readonly>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="stockQty">Quantity</label>
+            <input type="number" id="stockQty" placeholder="No. of shares" min="1" step="1" required>
+          </div>
+          <div class="form-group">
+            <label for="stockAvgPrice">Avg Buy Price (₹)</label>
+            <input type="number" id="stockAvgPrice" placeholder="Average price" min="0.01" step="0.01" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="stockBuyDate">Buy Date (optional)</label>
+            <input type="date" id="stockBuyDate">
+          </div>
+          <div class="form-group">
+            <label for="stockSector">Sector</label>
+            <select id="stockSector">
+              <option value="Other">Select Sector</option>
+              <option value="IT">IT</option>
+              <option value="Banking">Banking</option>
+              <option value="Pharma">Pharma</option>
+              <option value="Auto">Auto</option>
+              <option value="Energy">Energy</option>
+              <option value="FMCG">FMCG</option>
+              <option value="Metals">Metals</option>
+              <option value="Infra">Infra</option>
+              <option value="Telecom">Telecom</option>
+              <option value="Chemicals">Chemicals</option>
+              <option value="Realty">Realty</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="stockModalCancel">Cancel</button>
+          <button type="submit" class="btn-primary" id="stockModalSave">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== WATCHLIST ADD MODAL ===== -->
+  <div class="modal-overlay" id="watchlistModal" role="dialog" aria-modal="true" aria-labelledby="watchlistModalTitle" hidden>
+    <div class="modal-content modal-sm">
+      <div class="modal-header">
+        <h2 id="watchlistModalTitle">Add to Watchlist</h2>
+        <button class="btn-icon" id="watchlistModalClose" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <form id="watchlistForm" autocomplete="off">
+        <div class="form-group">
+          <label for="watchlistSearch">Search Stock</label>
+          <div class="search-input-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="watchlistSearch" placeholder="Search by name or symbol..." required>
+            <div class="search-results" id="watchlistSearchResults" hidden></div>
+          </div>
+        </div>
+        <input type="hidden" id="watchlistSymbol">
+        <input type="hidden" id="watchlistName">
+        <div class="form-group">
+          <label for="watchlistTargetPrice">Target Price ₹ (optional)</label>
+          <input type="number" id="watchlistTargetPrice" placeholder="Alert when price reaches..." min="0.01" step="0.01">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="watchlistModalCancel">Cancel</button>
+          <button type="submit" class="btn-primary" id="watchlistModalSave">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+            Watch
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== TOAST CONTAINER ===== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+{
+  "timestamp": "Thu May 21 17:03:03 IST 2026",
+  "overall_sentiment": 54.16666666666667,
+  "outlook": "NEUTRAL / CONSOLIDATING",
+  "color_class": "neutral",
+  "commentary": "The Indian stock market is trading in a consolidated range. Strong tech and healthcare startup performance, plus local corporate earnings are balancing global rate uncertainties.",
+  "sector_scores": {
+    "global_impact": 41.666666666666664,
+    "politics_finance": 66.66666666666667,
+    "tech_ai": 50.0,
+    "pharma": 50.0,
+    "general_nse": 58.333333333333336,
+    "growth_startups": 58.333333333333336,
+    "momentum_picks": 50.0
+  },
+  "recommendations": [
+    {
+      "asset": "Broad Market Index (NEXT50IETF / NIFTYBEES)",
+      "score": 62.5,
+      "recommendation": "BUY / ACCUMULATE",
+      "guidance": "Broad market indicators show strong industrial and economic support. Direct systematic weekly investments into NEXT50IETF or NIFTYBEES to capture this growth."
+    },
+    {
+      "asset": "Tech & AI Sector (TCS.NS / MON100)",
+      "score": 50.0,
+      "recommendation": "HOLD",
+      "guidance": "The Technology & AI sector is trading sideways. Keep holding your positions. AI developments provide long-term compound growth."
+    },
+    {
+      "asset": "Defensive Pharma (PHARMABEES.NS)",
+      "score": 50.0,
+      "recommendation": "HOLD",
+      "guidance": "Pharma index is moving in a consolidated defensive channel. Excellent stability support for your portfolio. Hold existing units."
+    },
+    {
+      "asset": "Safe-Haven Hedge (GOLDBEES.NS)",
+      "score": 45.83333333333333,
+      "recommendation": "HOLD / WATCH",
+      "guidance": "Global indices are stable and local markets are growing. Gold is trading sideways. Hold your existing units and prioritize index equities."
+    },
+    {
+      "asset": "Evolving Growth Startups (ZOMATO.NS / JIOFIN.NS)",
+      "score": 58.333333333333336,
+      "recommendation": "BUY / ACCUMULATE",
+      "guidance": "Indian startup ecosystem shows strong funding rebounds and robust growth in quick-commerce (Zomato) and digital lending (Jio Financial). Excellent for long-term compound growth."
+    },
+    {
+      "asset": "Short-Term Tactical Breakout (IREDA.NS / HAL.NS)",
+      "score": 50.0,
+      "recommendation": "HOLD / WATCH BREAKOUT",
+      "guidance": "Several mid-caps are consolidating at resistance levels. Put IREDA.NS and BHEL.NS on watch. Initiate trades only when a clear daily volume breakout occurs."
+    }
+  ],
+  "headlines": [
+    {
+      "sector": "Global Impact",
+      "title": "Nifty at 10-month low: Iran war, US Fed, crude oil among 9 factors likely to steer D-Street this week",
+      "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPZkQ2OVNUcDIwUktES1NGcXFGQTNGaFNBWm8tTUxRX1FUTWhaYjMyZjlJVkpOS2JJVHhkQkQ3dFczbTM2T3FYdzNKUm5KYURlZDBNOXJueHEyQ0dIakhyVUx5RmdtOW42OG8xZlN0RGJRLTRJZFptSHRvSm90dVFIOTFQN1l1UXRFa1kwejNLQ1NSdUNhbHJCU1dMdXhXX1ptTC1pNU5odE1SUE5OaU83NGJuSXpITDBfUjlNa0lIc0dOa3p6MWIxTTVQLXZYLWZlWEpHaURPcUhJYkx5ajVTOUNkVmlxejlmQ3l1aFRvd1hldWhGREw1LW93RWt4M3dyVlHSAYcCQVVfeXFMT2pMUndSSnQ5eGhQUVpZTHZGUXZpNUZCcW9BT3U2UURYODZNdzdraE1RamE5Z09VQkh4REgzU0dDNkxyeW5iQnh4WXViMEpDUXFtWm02Q2pHOUZCNjhRRFlmQkRGcm5zaFhTc2dTWTBEcUZNU1BHQU5xQzRRWDhkRHU2Ym1pR3ExZVRmRF9yVVZUdDF1VDVLTTdTLVh4TVROVnd2ZWdDNVhjME1tZ1ltaFdCQnRwdi1WTldiTkU5dnp5YngzNkI4dFJFUzdWbTd4c21VbzMyNnpYVXBVbWpLRlF4eXhyTUF0RjNWT2tSMlJnR0ZtYU5QdnJsOUhkc2w5dEZGZ09GQlk?oc=5",
+      "date": "Sun, 15 Mar 2026 07:00:00 GMT"
+    },
+    {
+      "sector": "Global Impact",
+      "title": "NIFTY50, SENSEX today: Wall Street cues, FII activity, key things to know before markets open on March 19",
+      "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPd2VMOGZVWjlWRW0wcmgxTjhTaWZ3WU43aXhwczd3eG1aTkdZTzFLMEtoTGRnQWJSSm1PbmZMeTBfb3BrdDdsMDhEaUE0dGFsYW55WEg5bkltTXp6RW1VSEp3V2hzSUxxVEZKYnZXTU5DNHZLSlpuM2RuaFNMOVlkT0hzYmhQak0zcE1OQk13enZJRG5CSjk3eGRvR3BFZGdtcDNLZGFodFAyVHJPX0V4NGhhbU5Jd2tmTUdzbmw1aHROdE8ySkM5Nm1Gc1ZHWVp6SHd6eXBsLXlrZ1ozZ1hDM0c4WnRiWTNBTmJ1dEw3bDhZT2c?oc=5",
+      "date": "Wed, 18 Mar 2026 07:00:00 GMT"
+    },
+    {
+      "sector": "Global Impact",
+      "title": "How will markets open today? GIFT Nifty lower, US stocks flat, Fed decision, and other cues to watch at this hour",
+      "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOa0J1eGtISzVBTTFXUndVa3hIRkMtNzBYT0V0LUcwYk94YmI5Tk91dDFlOUVMT1pPLS12R2lTS1pkOHNnaUc3V2ZyMFB0blhwclB0RFZXVUNuOFczaF8xVUJOZTlDMEVtRjJ5LU9WdFluUDZvYlNuNjhoXzlVdnBkU3F3MWtfZWd4SkpxSFZGbDRna0pXdXl6ZFlrN3Jwak44Vkk4RGU4c0g4aF9PUWFKY2VsUTBtSE5uYXE5OEF5enE3cy1wUzN5R3AzRlVCWV9WX0s3bEtaVjFyazhPbl9IM3FUcDZIWWRDYkhVS0p3Z9IB9gFBVV95cUxObUxjNE5SUkpkTWNfQl9TX1hzcnFQOFQyeUhFSHZzeTZtR3ZJQ0NKR0Z5MVhNY28xemNvVEhSOUVjTm5ldGxScXNRRnRWbWxvTUUxTGdUMXo5T3hLVXpGV0VnVGhXM3N0Sm1ab1hpMWpqQXU0eDFJLVhsMmVtUldQYU5seW9CVzFzRjU3NmNyaTF1amw5Q1lqdkpmQWctV0Z3bkI0XzQzTkNDb1piUy1rS2xiLU15d211Rmh5NnhUM0RRMzhmSFc1Y214a3FfNVhvUGVMZzBPdjBEbkZmLVh4ZkVkaENUa3NVYmFNSi1lZnRMczJlTUE?oc=5",
+      "date": "Wed, 10 Dec 2025 08:00:00 GMT"
+    },
+    {
+      "sector": "Politics Finance",
+      "title": "UPSC Economics Syllabus 2026, Prelims & Optional Syllabus PDF",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE51UDR4UmF2VVlGd1I0V2VLVy15RkppSjFRR3MxVzRCSUJnUmoyTVZLZVRpU0JDZVdJUHVKLUM4bzM1cUxBRzFTRDJNVkNTdmdoVENsT1FwMm9veFFOUzFhNU9Fa3dHcS1lekVLSUNn?oc=5",
+      "date": "Tue, 12 May 2026 07:00:00 GMT"
+    },
+    {
+      "sector": "Politics Finance",
+      "title": "Union Budget 2026 bets on reforms and growth amid global uncertainty",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQR2xiVS1uZXZ5UFhWRUxERU1hTWx5QXhYWXdKRVJTVHE1NHFZZkdJWExRREV4U0F3dmEwTXV2dEJJSUh5YktfQWdOcUlSMHNNdkpzU25KNkdWQVA0STBuSDRsa2Y0QTE4WjI0b2tnY19ZN3NFY05NYmo1dC1TT2pUNkM2aHJLUmhoNjkwcmVfYTA4dWhsUkhsRnpjZnFneEpud0ZnNG1tanFPZ3FnUVp3?oc=5",
+      "date": "Tue, 03 Feb 2026 08:00:00 GMT"
+    },
+    {
+      "sector": "Politics Finance",
+      "title": "India economic outlook, January 2026",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPbVNEUF9teW9VSlNOTVBOOXNjbVkybkFnOTVDNkljbWpGTld4Z1BhS243VUhJcHJqMjh3UWJDRkQwYlhTam9fMzQwTTRuejFnMlJrUjNteUVmZE5LeUc4ODVPRHhFYVlQNGU4S3RwX1dKc01XTTB4VTR0STVNbVVMN0F5WndKRnNiSlpUcUlCV2pIY2ZiVUdBb09XMA?oc=5",
+      "date": "Thu, 15 Jan 2026 08:00:00 GMT"
+    },
+    {
+      "sector": "Tech Ai",
+      "title": "Infosys, TCS and other IT stocks slide for third straight session as AI worries mount",
+      "link": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPeFg1QV9MOWZxYWdhMlhtazJFeTNMNUZLSlNoMWZKLWl0a0MzMGNTaHM1SDNhRVpwc0duZGFMR09qUUxRV1V3M3BfVW8tOXVPNi1HZ2VqWlZyd2lXRHViYVRxMEw3aUI0MDJSemZmM3R3SGtreXZKblM5QklGdHdFOG9fSUN1Z0d6ZkRYcWg4eU9rLVBjeG82ZWxQSTVURW9DZkZEeWZLT2pta0lZeGYtS29POUM0cjNSMy1jUjZxVG1YVmE0cVc3cTdmcWR4d1lSQ3RjeDFZd19ISDBfcUplMkN3Z1huMFFRRDI4R0phWdIB9AFBVV95cUxNSzhoLTFIamppdnRKTnlyZGd4bURuWW1vX0d3dXdnZkZFbHBOT2dSbzZ4a016OHdGbENFdUd5ekFNLVRBTmRUMjVsbFFBay1xbkRxUUl2VWJ1NVJzOTFMRlo5eVBYa0JQWFo2Nmt5T01mWnpMTFRXTDhrdUExbWUzMTMxbzZOSEVPN29pNDhZUnJGZXRIMW9Pai1sY05uWklLMkhBU0xtaUo2bVhRYWdBOU1FaTJUUWQxeXhyd0p2LXE2a2hhYjVFTGxyQloyUVVGeEZrNHVDN0UzUzNKOE9nZnpXZDZURzlzclBTNHJWS0NNU0Fv?oc=5",
+      "date": "Thu, 14 May 2026 09:16:31 GMT"
+    },
+    {
+      "sector": "Tech Ai",
+      "title": "IT stocks rebound: Infosys, TCS, Wipro, HCLTech, TechM, LTM, Coforge shares jump; what's behind the surge?",
+      "link": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNTy13ZERpQVlCNl8zWHZ6STV4V3lURUVuLVM0T1dLT21uUkhQeU80REJ6ZzBYb0diOEZLU05fdWVVSDc4S09tSXMxQU9Gcm9vY3BMRTU1WGhTRHJUNXRVSi1MX2hheXlhZHk3YmxLYlU3VlNVdnlvWkRUelJNNTZfX1hodXlSUjAxenJlc3hfRHBGQ1pUTlotak11OVY2U1lneTVlb1c5OXB2OW82R0t5dnQyNXdBVDNZWDRKQkFrTER3MlB2VlZSOTkxQVRMZmlKZ1ptVDU5OVVMeXlHaWpQRzJSUUNZWVpwd2NzTWFuUzNmalFaMGNR0gH8AUFVX3lxTE9TYUVCWjhXWk9kWXdTQmxjX21vbkxIV0k1ODlqZFlwVThHX09VN1lhaUIySFcyOTdzTGdlZEF5YkdIZVVqenZvVFJ2NEtqWm5hM21mdUp4WkZxTTRJSGctSnU0cEZQZFZDdlRFakVMWmh1RE1ILU9uQmRaem1ObDlIOFJ5SllmeUtoVzY3SmkwVnJuTHUzMnQxR0duOUEyT2Y1SnBtQ1p5TUYyVGxsRXBlV2VrSEpGRW5mVl9mR3ZhbDkteVlXUTZVal8ycTBRZU1xTUJUaW9Jd0tCSmlLampDcVZMS0oxMEEwNG0wTEVGWm8yekR5WDlFS2VVTg?oc=5",
+      "date": "Tue, 19 May 2026 04:35:44 GMT"
+    },
+    {
+      "sector": "Tech Ai",
+      "title": "Infosys, TCS Crash to Fresh 52-Week Lows as OpenAI AI Deployment Push Sparks Panic in IT Stocks",
+      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOYnBkVG50Z0ZRLWhuNXlJQ3N2YUFCemV5cVQtRFJ2QWt5UFZXODlOYmhiNkdjbktaQ3JfLVIwZEpaNGZXdUxDMXB0c002ZjVTaXN4RkJ6VTI2bzhXSnpHZlNwMFIyMHdKdjduaW5pWFZyZWsxVmNMcEsxTGJQVy1LMHZxMVROVFVOVjlQNmI1UVcxWTRZa19lbk8wc01rOVU3UkVGTmk2MVdxdXBROTR4V0pqYnZMdVBDNzNYN1p4Vk84SzdfSC1LWHNGaEhWNjlSUGptZTFR?oc=5",
+      "date": "Tue, 12 May 2026 07:00:00 GMT"
+    },
+    {
+      "sector": "General Nse",
+      "title": "Stock market crash: IRCTC, Patanjali Foods, Kaynes Technology among 682 stocks that hit 52-week low on NSE",
+      "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNNnlCYmN0azZRZXFaVnRpeU5JOHhkQWtmSlFMc01Nak1IZGJyMjNTUGtHNzNNcE9QSk05NXJFbzFwMEFJU2ZWOWQyZ3pOQ3R1enNvaTBZdmtOWm9CbjBuN2h0X1M3X1FuZ3JvQWN5VVRQemZVcFVJYThiRDNqeVBnWTdFVE9ObklvR0dYcklWWFMzRFg4QWNfa04zdllaVFBNVnAxTzJ6b3pxZkowM0lsa0dJQUcxNWNrbW4xU3ZSUDZKaTRsN1REWF9vVjJBX2cyUHoxbEZia2Y5STlNeXREbDYyM2NablYzYjlra1VfTDRTbC0x?oc=5",
+      "date": "Tue, 20 Jan 2026 08:00:00 GMT"
+    },
+    {
+      "sector": "General Nse",
+      "title": "Stock Market Today: NSE, BSE Set To Open Higher With Record High In Sight",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQSk9pSnc5N2pScDMxX1FnU1lGWURSSVg2TUNiMms5NDR4X1VPcEFHT3FRTEgxSjZmMld4VVJ3Qnd2aFk2aXhoMldzcVBPdFVxa3JGcWVQTHhxb3dWQXVHVkVVNUJINldLSjQtSHNkS0diNWFjZWdCUlUwNHQ0LXd3bkVVenJnV284MzI3dGdxN0oxUFZ1bjlqTngxV0ZrWURuby1KN3JvTVV3UG1XNk800gG0AUFVX3lxTE9fU2FnWlpWbzFKVHpGY0lVUlVHYXllMmJUTHU3Szh1dm9IeTlaYmprN1NRbUhCZ3M5Y055aUtQRlROTURHZWtTMnJsa3BNVWFSdmZHWUVmcGg5MnZUTFEtSlpIQWpoOUFfRUlyRklhb1dYM0pKc3BFaG1JZ3dTRDR1N0lLZTlic0pHOFlSVVRBMVIzck9HaW9ZV2FLaUxaZEk2ZkVCQ0p1Qy1UX1pCUjRYR0c4SQ?oc=5",
+      "date": "Fri, 21 Nov 2025 08:00:00 GMT"
+    },
+    {
+      "sector": "General Nse",
+      "title": "Stock market today: These are the top gainers and losers on NSE & BSE on January 22 - check list",
+      "link": "https://news.google.com/rss/articles/CBMijwJBVV95cUxPaDFrRjZYMjVKT3dDcVIwb3NscFVlcFN0WlBXMlA1VWFtVC1RSDF0NGd0aVdXb0t2MVJqdnItUTBvejBnWWlpaGkwZ3VmWjZYUllrYjBaQ2kyNjVjM1FLSkZZc3NhMmI4NU5hS2tCNzBCRldtX1E0OXpOUlJtYlItd25mOXFELVZjdU83a2JVRkQ0SFJtVWstaGVRb3FST2MyNmZZWFhMdzBvSktzazBKVGZkeVhYZXhSOHJUTXVaaDVWUlEtY29xMUpXS2F5SlN1R3dUVGt0dVE5d2I0YlR0SkFFWjlscW5Rcm5ENFNxcmZ5V0hMLWsweUNCY2lVVC1fcm84WUpUVHM0STBYNThN0gGUAkFVX3lxTE1nb1dJS0RlSDBXeUowZFBMRkZCOFAyYmdXYU1FNjVHbm0zWnlZMEFDVldRUlNqbUdMa21RLVdvODhUMFBvd2FiQ1BWOE1nYVd3VkhaaUdaMFdDOWsyRGN6bDhMck5feUZaUlJqRy1sT1lPMGVLUlg0RDU3dTJKNG02VUZndlVKZnJDbVRfNGgteDRTWVVLOHg3YnVrLXQtcVg2bk5LbV9xMFY2UlNrTFI1Z1Z4ajlYbTBPZUJiT2JFQkE4WWxLNjhpS2NxM3p6MVJWRmpSNlROOW5qbzdJaEhNZ0FQbjZ4UG9jVk45S2ZyUXhhU0hFRmdUUUtaSkNlQmZtX3lzTmVzOGVtY0lJV0dId19KYQ?oc=5",
+      "date": "Thu, 22 Jan 2026 08:00:00 GMT"
+    },
+    {
+      "sector": "Growth Startups",
+      "title": "Indian Startup IPO Tracker 2026",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBnS183TEQzMHI1QjlKSDhLSmhWSWhMLTBYanJITEFPYU9wSEJDYTZTMXhMUDAtV1hQYnZETzBCLWJGYTV4aVhUcDUyQ2xDbU5BMnBfWVNSN0YxNVhmakQ1U0tNLXgzOUxhbkJN?oc=5",
+      "date": "Sun, 17 May 2026 07:00:00 GMT"
+    },
+    {
+      "sector": "Growth Startups",
+      "title": "Reflections on the First Decade of \u2018Startup India\u2019",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPQXpJUlNOSW8wdm9rSVVyQ19oRzR6ZkYwNlkwTDRiZ0VLNVJnbFE5Nnd4QUM2NzBxOXBnR3FscVVUWkVwTXhnY29GSS1qUXdMR2szbkQ2cTNVLWhyZFI3c01wMDlYVjA1SVpObkppVkRLcXRLS0E0ZUNzV3dydHE5MEZWdHdYT2RsRXI4?oc=5",
+      "date": "Mon, 21 Jul 2025 07:00:00 GMT"
+    },
+    {
+      "sector": "Growth Startups",
+      "title": "Deep Tech in India - 2026 Market & Investments Trends",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPVnVfaHF1a0NYUTJkMFRLbTZhMDFNQ1p6VTVHV2g5NlRkSGUtZjJTN3EtNWVuZlp4a2Yxa000VUFodXhwWjJ4X05YdTJoaV9sMzF3dEpCaXFCUWswNW1qQTBqM09IQmtxRVV0cm9aTGk4Z2kyeHJmMW5NUF9EWDNxTXRLemIyR2ZsamdVTjBjLUliNS01U2pGdFNGSnRmdEJNTXFRNg?oc=5",
+      "date": "Fri, 24 Apr 2026 07:00:00 GMT"
+    },
+    {
+      "sector": "Momentum Picks",
+      "title": "Stocks to buy for short term: Welspun Living, Cummins, Thyrocare among five technical stock picks for this week",
+      "link": "https://news.google.com/rss/articles/CBMinwJBVV95cUxQOXp3TjBBZk5mMmFycjhEdU01Y3FtNmtURXBZMk1CSzBhQTlOUW5MTFRVTlNQTzZELXQwTTQySURvU1UweWtQRVFzcDVDUU56OFZwTUw0V3ZmQXowejdNaGJzT19EU0NfUXdiWnlGRnd3LVBzYm1vazRHQmVBU20wNTR5aEdOdzJ3c29udnF4Z0wwdmtFZDBWUF9pZE9ncGtYZWRZanhfWExHSWpVYmNsMUNPOG14ZFl6T0UxSjZvWmt6V2ppSmx1V3RPRk5QdExMUkN5eklhWExkZkRKZk9qclpaNTFDTUV6M0tULXcta1Q0TWNZWWRVUDIwSlBOeVhPWTZTN3NYZ1Bkb2R0MjROcS1JSDZYN1hEWnB1N00zWQ?oc=5",
+      "date": "Tue, 19 May 2026 07:32:27 GMT"
+    },
+    {
+      "sector": "Momentum Picks",
+      "title": "Breakout stocks to buy or sell: Sumeet Bagadia recommends five shares to buy today \u2014 24 April 2026",
+      "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPTXhUQ3RTdUtIRUgxOGlxbWFReVljYlhMcmUxLU0xRDlEN1hla2Z5czRjYVF4MEpVU1JyZ0h5cnpaeFBHY2Y4VWJYajBCdDJTUDFzWUZGVTlHV2VuVFZXNXVDVlBLaVRYbVVxQmVrcmw1MEFibmxtd0NsVEZDcVUtdFE2R29ZRzk0S1JjT0QtbUZlQ211SnMwWjNxcXRKaHI0Z09sdS0wd0dvMnA0LW4zQm83LTZ3blczazJFQTd0YTZWYU0xcE9wSGcxaVU3dVZNY1RaN3Z1LWE4NDZVa2VqQWRITHlLM19PSWFEZXNVSU9GUmd4cTFnZNIB_gFBVV95cUxOektockwtTWdFenpiRDJhODJYVl9pd1RIR19DeUQzT18yeTN0UjFZdG1keThnck4xeWY4dHYwRGEzSGNlWWphZ3Jjdnh3OHV0RTFpWndWRXF2YWgxUE9aWDNsOVh6R3BhVVpOV1RDS0lRczcxcVB3S0k4YVI0UVA3dGcwRDVTXzRGY3kweWoxWjhiT2dESDN6a0JNNlRuaHdkVkpQRWY0Y2dVdUtwZko5UGhQelNid1FRaUZlUUFxYWp6UEhrRWZFelZUOEl0UEFwd2Q4MXlFUk5BZjhqejA1SE9qalhtZlJSS3F6bWtWM2dGbDRmUFZLakRENHRpQQ?oc=5",
+      "date": "Fri, 24 Apr 2026 07:00:00 GMT"
+    },
+    {
+      "sector": "Momentum Picks",
+      "title": "BEL trades above key moving averages; technicals signal continuation of uptrend: Rajesh Palviya",
+      "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxObTFqcFBfcWo2Sm9NLUVXMmE2TGdJUFE1VlY5aFFqcExPWjY5RFJlZ0hWYnRndzBSel9OZnZDTnBjYzUwb1V0UFRsMDQ1RGprOFNIWUJZMFdDeTQyU28yZXIzTzh6NF85NjZWZG9Jb3FoMWtpMTlSeUpZZGFyYU1BNVZTVTlIVDBZWEhqY2NzYjNqbmpGVmJpbXhMN2c0cFR5MFZjdnp0MDNtQkFpMzhrUUpKM1A2ekpYNXJCeU5zeW9la3paeGd4bE1fU0ZlVWdiSXJYdGpMSTlma2dVeEpiYVZ4U3RpMnVyNnZXZ3dWTU42QdIB9wFBVV95cUxOMTktbW5rOGV6QTRUR2dnQ0ZybUhOdkxMaHJ0RVFWekVfOEZKZUFaZEdxcWJHQm1MbnhDY3pvZ2RhOUtYM3FTbjAzY3lidl9xWjMxR19QZE01WWVldnJGZGRSVEpFVFlWVDdRVmNGU2wxSWFQYVR5N1JHU2g0aHpCRUhqdm5uY2Zpakxrd3d6cWlYeXBZS3JpM3dJVExlXzh1eGZza0tmVDQ5UEk0THVFZkVyTzlwdjZJZTFkY1lUeUNUZHU0U2s3QTd2RVBrUmlfR0xpM1lwQ0Zlc25kaGhzanFERGtpb2FTemVmY0tGWldQLWk3NkUw?oc=5",
+      "date": "Tue, 03 Feb 2026 08:00:00 GMT"
+    }
+  ]
+}
