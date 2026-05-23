@@ -78,7 +78,7 @@ def fetch_feed_news(query):
 def generate_report():
     print("[News Advisor] Scraping Indian and Global financial feeds...")
     
-    # Fetch 7 custom feeds mapping the user's specific targets including startups & short-term picks
+    # Fetch 8 custom feeds mapping the user's specific targets including startups, short-term picks, and penny multibaggers
     feeds = {
         "global_impact": fetch_feed_news("FII DII Indian stock market global markets US inflation Fed Nifty"),
         "politics_finance": fetch_feed_news("Indian politics economic reforms budget industrial growth GDP"),
@@ -86,7 +86,8 @@ def generate_report():
         "pharma": fetch_feed_news("pharma sector India stocks Sun Pharma Cipla Lupin PHARMABEES"),
         "general_nse": fetch_feed_news("NSE Indian stock market corporate earnings business headlines"),
         "growth_startups": fetch_feed_news("upcoming IPO India startup growth funding SME IPO valuation unicorn"),
-        "momentum_picks": fetch_feed_news("NSE stock breakout momentum short term buy call target share price")
+        "momentum_picks": fetch_feed_news("NSE stock breakout momentum short term buy call target share price"),
+        "penny_multibagger": fetch_feed_news("penny stocks India multibagger micro cap small cap under 50 rupees Suzlon renewable defence railway")
     }
     
     # Calculate average scores for each sector
@@ -97,16 +98,17 @@ def generate_report():
         else:
             scores[sector] = 50.0  # Neutral fallback
             
-    # Calculate overall weighted Global Sentiment Index (now covering startups and momentum picks)
-    # Weights: Global Impact (10%), Politics/Finance (15%), Tech/AI (15%), Pharma (15%), General NSE (15%), Startups (15%), Momentum (15%)
+    # Calculate overall weighted Global Sentiment Index (now covering 8 sectors)
+    # Weights: Global (10%), Politics (12.5%), Tech (12.5%), Pharma (12.5%), NSE (12.5%), Startups (12.5%), Momentum (12.5%), Penny (15%)
     overall_sentiment = (
         scores["global_impact"] * 0.10 +
-        scores["politics_finance"] * 0.15 +
-        scores["tech_ai"] * 0.15 +
-        scores["pharma"] * 0.15 +
-        scores["general_nse"] * 0.15 +
-        scores["growth_startups"] * 0.15 +
-        scores["momentum_picks"] * 0.15
+        scores["politics_finance"] * 0.125 +
+        scores["tech_ai"] * 0.125 +
+        scores["pharma"] * 0.125 +
+        scores["general_nse"] * 0.125 +
+        scores["growth_startups"] * 0.125 +
+        scores["momentum_picks"] * 0.125 +
+        scores["penny_multibagger"] * 0.15
     )
     
     # Classify overall sentiment direction
@@ -236,6 +238,25 @@ def generate_report():
         "recommendation": momentum_rec,
         "guidance": momentum_txt
     })
+
+    # 7. Penny Stock / Micro-Cap Multibagger Scanner
+    penny_score = scores["penny_multibagger"]
+    if penny_score >= 54:
+        penny_rec = "SCOUT / HIGH POTENTIAL"
+        penny_txt = "Penny stock sentiment is surging — fresh IPO filings, strong micro-cap earnings surprises, and government capex tailwinds in defence/railway/renewable sectors are creating multibagger setups. Scout: Suzlon Energy, Vikas EcoTech, GTL Infra. Limit exposure to 5-10% of portfolio."
+    elif penny_score <= 45:
+        penny_rec = "AVOID / HIGH RISK"
+        penny_txt = "Penny stock sentiment is weak — market-wide sell-offs, SEBI surveillance actions, and liquidity drains are hitting micro-caps hard. Avoid fresh entries. Wait for broad market stabilization before scouting sub-₹50 opportunities."
+    else:
+        penny_rec = "WATCHLIST ONLY"
+        penny_txt = "Penny stocks are in a consolidation phase. Add fundamentally strong micro-caps (low debt, improving ROE, promoter buying) to your watchlist. Sectors to watch: Renewable Energy (Suzlon), Specialty Chemicals (Vikas EcoTech), Telecom Infra (GTL Infra). Do NOT chase tips."
+
+    recommendations.append({
+        "asset": "Penny Multibagger Scanner (SUZLON.NS / VIKASECO.NS)",
+        "score": penny_score,
+        "recommendation": penny_rec,
+        "guidance": penny_txt
+    })
     
     # Compile a flat list of parsed headlines to show in the UI dashboard
     all_headlines = []
@@ -258,7 +279,7 @@ def generate_report():
         "commentary": commentary,
         "sector_scores": scores,
         "recommendations": recommendations,
-        "headlines": all_headlines[:21]  # Support up to 21 top headlines (3 from each of 7 feeds)
+        "headlines": all_headlines[:24]  # Support up to 24 top headlines (3 from each of 8 feeds)
     }
     
     # Save to JSON file

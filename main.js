@@ -765,7 +765,7 @@ class UIController {
     }
 
     // 2. Sectoral Sentiment Breakdowns
-    const sectors = ['global_impact', 'politics_finance', 'general_nse', 'tech_ai', 'pharma', 'growth_startups', 'momentum_picks'];
+    const sectors = ['global_impact', 'politics_finance', 'general_nse', 'tech_ai', 'pharma', 'growth_startups', 'momentum_picks', 'penny_multibagger'];
     sectors.forEach(sec => {
       const scoreEl = document.getElementById(`score_${sec}`);
       const fillEl = document.getElementById(`fill_${sec}`);
@@ -860,7 +860,8 @@ class UIController {
             'tech_ai': 'Tech & AI',
             'pharma': 'Pharma Sector',
             'growth_startups': 'Growth Startups',
-            'momentum_picks': 'Short & Mid-Term'
+            'momentum_picks': 'Short & Mid-Term',
+            'penny_multibagger': '🚀 Penny Multibagger'
           };
           const displaySector = sectorMap[sectorLower] || sectorRaw;
 
